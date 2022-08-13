@@ -7,6 +7,7 @@ export default {
         photo: "",
         token: "",
         is_login: false,
+        pulling_info: true,
     },
     getters: {
     },
@@ -21,12 +22,15 @@ export default {
             state.token = token;
         },
         logout(state) {
-            state.id = "",
-                state.username = "",
-                state.photo = "",
-                state.token = "",
-                state.is_login = false
+            state.id = "";
+            state.username = "";
+            state.photo = "";
+            state.token = "";
+            state.is_login = false
         },
+        updatePullingInfo(state, pulling_info) {
+            state.pulling_info = pulling_info;
+        }
     },
     actions: {
         login(context, data) {
@@ -39,6 +43,7 @@ export default {
                 }
             }).then(function (response) {
                 if (response.data['error_message'] === "success") {
+                    localStorage.setItem("jwt_token", response.data['token']);
                     context.commit("updateToken", response.data['token']);
                     data.success(response);
                 } else {
@@ -73,8 +78,9 @@ export default {
             });
         },
         logout(context) {
+            localStorage.removeItem("jwt_token");
             context.commit("logout");
-        }
+        },
     },
     modules: {
     }
