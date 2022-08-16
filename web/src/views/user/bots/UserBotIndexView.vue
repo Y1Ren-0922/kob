@@ -246,24 +246,6 @@ export default {
             remove_bot,
             update_bot,
         }
-
-        // axios({
-        //     url: "http://127.0.0.1:3000/user/bot/update/",
-        //     method: "post",
-        //     params: {
-        //         bot_id: 1,
-        //         title: "bot的标题1",
-        //         description: "bot的描述1",
-        //         content: "bot的代码1"
-        //     },
-        //     headers: {
-        //         Authorization: "Bearer " + store.state.user.token,
-        //     }
-        // }).then(function (resp) {
-        //     console.log(resp.data);
-        // }).catch(function (error) {
-        //     console.log(error.response.data);
-        // })
     }
 }
 </script>
