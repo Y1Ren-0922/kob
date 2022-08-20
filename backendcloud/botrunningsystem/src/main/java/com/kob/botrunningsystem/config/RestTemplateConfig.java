@@ -1,4 +1,4 @@
-package com.kob.backend.config;
+package com.kob.botrunningsystem.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
