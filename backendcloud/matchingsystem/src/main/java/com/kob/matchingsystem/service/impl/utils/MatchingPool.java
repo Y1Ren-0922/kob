@@ -79,6 +79,8 @@ public class MatchingPool extends Thread{
     }
 
     private boolean checkMatched(Player a, Player b) {
+        //使得自己不能匹配自己
+        //if (a.getUserId().equals(b.getUserId())) return false;
         int ratingDelta = Math.abs(a.getRating() - b.getRating());
         int waitingTime = Math.min(a.getWaitingTime(), b.getWaitingTime());
         return ratingDelta <= waitingTime * 10;
